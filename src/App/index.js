@@ -12,8 +12,8 @@ function App() {
   //   setDomWriting(`You clicked ${e.target.id}! Check the setSTudents!`);
   useEffect(() => {
     livingStudents(students);
-    // console.warn(students);
-    setStudents();
+    setStudents(students);
+    // console.warn(livingStudents(students));
   }, []);
   //   // livingStudents(students) setStudents();
   //   // livingStudents(students).then((studentArray) => setStudents() -console.log((studentArray));

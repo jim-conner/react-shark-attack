@@ -173,6 +173,6 @@ export default function livingStudents() {
 // console.console.warn(followTheLight); */}
 
 livingStudents.propTypes = {
-  students: PropTypes.array.isRequired,
+  students: PropTypes.object.isRequired,
   setStudents: PropTypes.func.isRequired
 };
