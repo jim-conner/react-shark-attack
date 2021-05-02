@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// import React from 'react';
+// import PropTypes from 'prop-types';
 
 const students = [
   {
@@ -142,17 +142,39 @@ const students = [
   }
 ];
 
-export default function livingStudents() {
-  // const studentsArray = students.map((student => <div key={student.id}>
-  //     {student.value}
-  //   </div>);
-  const studentsArray = students.map((student) => ({ ...student }));
-  // studentsArray.isDead=false ? studentsArray : '';
-  console.warn(studentsArray);
-  return (
-    <div><h3>{studentsArray}</h3></div>
-  );
-}
+const getLivingStudents = () => students.filter((student) => !student.isDead);
+const getDeadStudents = () => students.filter((student) => student.isDead);
+
+const killStudent = () => {
+  const currentLiveStudents = getLivingStudents();
+  const randomStudent = currentLiveStudents[Math.floor(Math.random() * currentLiveStudents.length)];
+
+  const index = students.indexOf(randomStudent);
+  students[index].isDead = true;
+
+  return [getLivingStudents(), getDeadStudents()];
+};
+
+export {
+  getDeadStudents,
+  getLivingStudents,
+  killStudent,
+  students
+};
+
+// export default function livingStudents() {
+//   const studentsArray = students.map((student => <div key={student.id}>
+//       {student.value}
+//     </div>);
+//   const studentsArray = students.map((student) => ({ ...student }));
+//   studentsArray.isDead=false ? studentsArray : '';
+//   filter thru students
+//   console.warn(studentsArray);
+
+//   return (
+//     <div><h3>{studentsArray}</h3></div>
+//   );
+// }
 // {/* students.isDead === false ? isDeadArray : 'N' */}
 
 // {/* export function dearlyBeloved() {
@@ -172,7 +194,7 @@ export default function livingStudents() {
 // {/* console.console.warn(dearlyBeloved);
 // console.console.warn(followTheLight); */}
 
-livingStudents.propTypes = {
-  students: PropTypes.object.isRequired,
-  setStudents: PropTypes.func.isRequired
-};
+// getLivingStudents.propTypes = {
+//   students: PropTypes.object.isRequired,
+//   setStudents: PropTypes.func.isRequired
+// };
