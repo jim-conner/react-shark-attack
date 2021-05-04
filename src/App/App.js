@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { Button } from 'reactstrap';
 import {
-  killStudent,
+  followTheLight,
   getLivingStudents,
-  getDeadStudents,
+  getDearlyBeloved,
 
 } from '../helpers/data/studentsData';
 // import livingStudents from '../helpers/data/studentsData';
-import Graveyard from './components/GraveYard';
+import GraveYard from './components/GraveYard';
 import SharkTank from './components/SharkTank';
 import './App.scss';
 
@@ -21,7 +22,7 @@ function App() {
   //   setDomWriting(`You clicked ${e.target.id}! Check the setSTudents!`);
   useEffect(() => {
     setLivingStudents(getLivingStudents());
-    setDeadStudents(getDeadStudents());
+    setDeadStudents(getDearlyBeloved());
     // console.warn(livingStudents);
   }, []);
   //   // livingStudents(students) setStudents();
@@ -34,33 +35,29 @@ function App() {
   // )
 
   const killEmAll = () => {
-    const [living, dead] = killStudent();
+    const [living, dead] = followTheLight();
     setLivingStudents(living);
     setDeadStudents(dead);
-    console.warn('clicked Dead button');
+    console.warn('clicked Dead button', living, dead);
   };
 
   return (
     <div className='App'>
-
-  {console.warn(livingStudents.length)}
-
-      {/* kill  button will go here ADD REACTSTRAP BUTTON */}
-      {livingStudents.length ? <button onClick={killEmAll}>Kill `&apos;`em All</button> : null}
-      {/* this is hiding button ^^ */}
-
-      <button
+      <h3>Living Students</h3>
+      <Button
+        color="danger"
         onClick={killEmAll}
         disabled={livingStudents.length <= 0}
       >
-        Kill em ALL
-      </button>
-        <SharkTank livingStudents={livingStudents}/>
-      <h3>Dead Students</h3>
-        <Graveyard deadStudents={deadStudents}/>
+        SHARK ATTACK!
+      </Button>
+      <SharkTank livingStudents={livingStudents}/>
+      {/* {livingStudents.length ? <Button color="danger" onClick={killEmAll}>SHARK ATTACK!</Button> : null} */}
+      {console.warn(livingStudents.length)}
 
-      {/* div with alive students */}
-      {/* div with dead students */}
+      {/* or I could use this disabled attribute */}
+      <h3>Dead Students</h3>
+        <GraveYard deadStudents={deadStudents}/>
     </div>
   );
 
