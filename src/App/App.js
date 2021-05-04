@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Button } from 'reactstrap';
 import {
-  killStudent,
+  followTheLight,
   getLivingStudents,
-  getDeadStudents,
+  getDearlyBeloved,
 
 } from '../helpers/data/studentsData';
 // import livingStudents from '../helpers/data/studentsData';
@@ -21,7 +22,7 @@ function App() {
   //   setDomWriting(`You clicked ${e.target.id}! Check the setSTudents!`);
   useEffect(() => {
     setLivingStudents(getLivingStudents());
-    setDeadStudents(getDeadStudents());
+    setDeadStudents(getDearlyBeloved());
     // console.warn(livingStudents);
   }, []);
   //   // livingStudents(students) setStudents();
@@ -34,10 +35,10 @@ function App() {
   // )
 
   const killEmAll = () => {
-    const [living, dead] = killStudent();
+    const [living, dead] = followTheLight();
+    // console.warn('clicked Dead button');
     setLivingStudents(living);
     setDeadStudents(dead);
-    console.warn('clicked Dead button');
   };
 
   return (
@@ -46,15 +47,15 @@ function App() {
   {console.warn(livingStudents.length)}
 
       {/* kill  button will go here ADD REACTSTRAP BUTTON */}
-      {livingStudents.length ? <button onClick={killEmAll}>Kill `&apos;`em All</button> : null}
+      {livingStudents.length ? <Button color="danger" onClick={killEmAll}>SHARK ATTACK!</Button> : null}
       {/* this is hiding button ^^ */}
 
-      <button
+      {/* <Button
         onClick={killEmAll}
         disabled={livingStudents.length <= 0}
       >
         Kill em ALL
-      </button>
+      </Button> */}
         <SharkTank livingStudents={livingStudents}/>
       <h3>Dead Students</h3>
         <Graveyard deadStudents={deadStudents}/>
