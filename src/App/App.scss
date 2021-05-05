@@ -39,7 +39,25 @@
 
 .card-container {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  // flex-direction: row;
   justify-content: center;
+  text-align: center;
   // align-items: center; i might use this somehow
 }
+
+.customCard {
+  max-width: 200px;
+  // background-color: rgba(255, 255, 255, 0.6);
+  overflow: hidden;
+  border: none !important;
+  // opacity: .3;
+  // background-color:
+  // box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  // margin: 30px auto;
+}
+
+// .transparent-card {
+//   background-color: rgba(245, 245, 245, 1);
+//   opacity: .3;
+// }
