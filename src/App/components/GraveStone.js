@@ -18,7 +18,6 @@ export default function GraveStone({ deadStudent }) {
             </CardBody>
           </Card>
         </div>
-
   );
 }
 

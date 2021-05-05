@@ -19,7 +19,6 @@ export default function LiveStudent({ liveStudent }) {
             </CardBody>
           </Card>
         </div>
-
   );
 }
 

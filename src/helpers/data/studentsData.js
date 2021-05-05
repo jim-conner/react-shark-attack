@@ -1,6 +1,3 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
-
 const students = [
   {
     id: 0,
@@ -162,16 +159,12 @@ const followTheLight = () => {
   return [getLivingStudents(), getDearlyBeloved()];
 };
 
-const resetStudents = () => {
+const resurrectStudents = () => {
   const currentDeadStudents = getDearlyBeloved();
   const ressurectRandomStudent = currentDeadStudents[Math.floor(Math.random() * currentDeadStudents.length)];
 
   const index = students.indexOf(ressurectRandomStudent);
   students[index].isDead = false;
-  // currentDeadStudents(student.isDead = false);
-  // getDearlyBeloved(students.isDead) = true;
-  // const resurrect = () => currentDeadStudents.isDead = true;
-  // resurrect();
   return [getLivingStudents(), getDearlyBeloved()];
 };
 
@@ -179,43 +172,6 @@ export {
   getDearlyBeloved,
   getLivingStudents,
   followTheLight,
-  resetStudents,
+  resurrectStudents,
   students
 };
-
-// export default function livingStudents() {
-//   const studentsArray = students.map((student => <div key={student.id}>
-//       {student.value}
-//     </div>);
-//   const studentsArray = students.map((student) => ({ ...student }));
-//   studentsArray.isDead=false ? studentsArray : '';
-//   filter thru students
-//   console.warn(studentsArray);
-
-//   return (
-//     <div><h3>{studentsArray}</h3></div>
-//   );
-// }
-// {/* students.isDead === false ? isDeadArray : 'N' */}
-
-// {/* export function dearlyBeloved() {
-//   return (
-//     <div>
-//     </div>
-//   );
-// }
-
-// export function followTheLight() {
-//   return (
-//     <div>
-//     </div>
-//   );
-// } */}
-
-// {/* console.console.warn(dearlyBeloved);
-// console.console.warn(followTheLight); */}
-
-// getLivingStudents.propTypes = {
-//   students: PropTypes.object.isRequired,
-//   setStudents: PropTypes.func.isRequired
-// };

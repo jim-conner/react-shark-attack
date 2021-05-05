@@ -10,7 +10,6 @@ export default function SharkTank({ livingStudents }) {
           <LiveStudent
             key={liveStudent.id}
             liveStudent={liveStudent}/>
-
         ))}
       </div>
   </>
