@@ -1,24 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Card, CardBody, CardTitle
+  Card,
+  CardImg,
+  CardImgOverlay,
+  CardTitle
 } from 'reactstrap';
+import blueSharkBait from '../../assets/blueSharkBait.png';
 
 export default function LiveStudent({ liveStudent }) {
   return (
     <div>
-          <Card body color='warning'>
-            <CardBody>
-              <CardTitle tag="h5">
-                {liveStudent.firstName}
-                {liveStudent.lastName}
-              </CardTitle>
-            </CardBody>
-            <img width="100%" src="/assets/318x180.svg" alt="Card image cap" />
-            <CardBody>
-            </CardBody>
-          </Card>
-        </div>
+      <div>
+        <Card
+          className='customCard'
+          color='transparent'
+          inverse
+        >
+          <CardImg
+          src={blueSharkBait}
+          alt="Gravestone" />
+          <CardImgOverlay>
+            <CardTitle tag="h5">
+              {liveStudent.firstName}<br/>
+              {liveStudent.lastName}
+            </CardTitle>
+          </CardImgOverlay>
+        </Card>
+      </div>
+    </div>
   );
 }
 

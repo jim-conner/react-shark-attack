@@ -1,3 +1,7 @@
+Body {
+  background-color: black;
+  background: url(../assets/graveyard.jpg);
+}
 .App {
   text-align: center;
 }
@@ -39,7 +43,14 @@
 
 .card-container {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  // align-items: center; i might use this somehow
+  text-align: center;
+}
+
+.customCard {
+  max-width: 200px;
+  overflow: hidden;
+  border: none !important;
+ margin-top: auto;
 }

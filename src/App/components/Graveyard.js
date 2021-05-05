@@ -4,16 +4,13 @@ import GraveStone from './GraveStone';
 
 export default function GraveYard({ deadStudents }) {
   return (
-    <>
       <div className="card-container">
         {deadStudents.map((deadStudent) => (
           <GraveStone
             key={deadStudent.id}
             deadStudent={deadStudent}/>
-
         ))}
       </div>
-  </>
   );
 }
 
