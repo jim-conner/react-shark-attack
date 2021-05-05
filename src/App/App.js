@@ -4,12 +4,14 @@ import {
   followTheLight,
   getLivingStudents,
   getDearlyBeloved,
+  resetStudents,
 
 } from '../helpers/data/studentsData';
 // import livingStudents from '../helpers/data/studentsData';
 import GraveYard from './components/GraveYard';
 import SharkTank from './components/SharkTank';
 import './App.scss';
+// import ResetButton from './components/ResetButton';
 
 function App() {
   // const [domWriting, setDomWriting] = useState('Nothing Here!');
@@ -41,6 +43,13 @@ function App() {
     console.warn('clicked Dead button', living, dead);
   };
 
+  const ressurect = () => {
+    const [living, dead] = resetStudents();
+    setLivingStudents(living);
+    setDeadStudents(dead);
+    console.warn('clicked Ressurect button', living, dead);
+  };
+
   return (
     <div className='App'>
       <h3>Living Students</h3>
@@ -53,11 +62,20 @@ function App() {
       </Button>
       <SharkTank livingStudents={livingStudents}/>
       {/* {livingStudents.length ? <Button color="danger" onClick={killEmAll}>SHARK ATTACK!</Button> : null} */}
-      {console.warn(livingStudents.length)}
+      {/* {console.warn(livingStudents.length)} */}
 
       {/* or I could use this disabled attribute */}
       <h3>Dead Students</h3>
         <GraveYard deadStudents={deadStudents}/>
+        <div>
+        <Button
+        color="info"
+        onClick={ressurect}
+        // disabled={livingStudents.length <= 0}
+      >
+        RESURRECT
+      </Button>
+    </div>
     </div>
   );
 

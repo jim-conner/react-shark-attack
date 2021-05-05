@@ -162,10 +162,24 @@ const followTheLight = () => {
   return [getLivingStudents(), getDearlyBeloved()];
 };
 
+const resetStudents = () => {
+  const currentDeadStudents = getDearlyBeloved();
+  const ressurectRandomStudent = currentDeadStudents[Math.floor(Math.random() * currentDeadStudents.length)];
+
+  const index = students.indexOf(ressurectRandomStudent);
+  students[index].isDead = false;
+  // currentDeadStudents(student.isDead = false);
+  // getDearlyBeloved(students.isDead) = true;
+  // const resurrect = () => currentDeadStudents.isDead = true;
+  // resurrect();
+  return [getLivingStudents(), getDearlyBeloved()];
+};
+
 export {
   getDearlyBeloved,
   getLivingStudents,
   followTheLight,
+  resetStudents,
   students
 };
 

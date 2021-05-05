@@ -1,20 +1,23 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-// import GraveStone from './GraveStone';
+import GraveStone from './GraveStone';
 
 export default function GraveYard({ deadStudents }) {
   return (
-    <ul>
-    {deadStudents.map((deadStudent) => <li key={deadStudent.id}>
-        {deadStudent.firstName}
-        {deadStudent.lastName}
-        </li>)}
-        {/* <GraveStone key={student.id} student={student}/> */}
-    </ul>
+    <>
+      <div className="card-container">
+        {deadStudents.map((deadStudent) => (
+          <GraveStone
+            key={deadStudent.id}
+            deadStudent={deadStudent}/>
+
+        ))}
+      </div>
+  </>
   );
 }
 
 GraveYard.propTypes = {
   deadStudents: PropTypes.array.isRequired,
-  // deadStudent: PropTypes.obj.isRequired
+  deadStudent: PropTypes.object
 };
