@@ -33,33 +33,34 @@ function App() {
 
   return (
     <div className='App'>
-      <h3>Living Students</h3>
+      <>
+        <SharkTank livingStudents={livingStudents}/>
+          <Button
+          color="danger"
+          size="lg"
+          onClick={killEmAll}
+          disabled={livingStudents.length <= 0}
+        >
+          {livingStudents.length <= 0
+            ? 'Jaws was here.'
+            : 'SHARK ATTACK'}
+        </Button>
+      </>
+
+      <>
       <Button
-        color="danger"
-        size="lg"
-        onClick={killEmAll}
-        disabled={livingStudents.length <= 0}
-      >
-        {livingStudents.length <= 0
-          ? 'Jaws was here.'
-          : 'SHARK ATTACK'}
-      </Button>
-      <SharkTank livingStudents={livingStudents}/>
-      {deadStudents.length <= 0 ? <h3>Everyone is Alive!</h3> : <h3>Dead Students</h3>}
-        <div>
-        <Button
         color="info"
         size="lg"
         onClick={ressurect}
         disabled={deadStudents.length <= 0}
       >
         {deadStudents.length <= 0
-          ? 'nothing to resurrect'
+          ? 'THEY LIVE!'
           : 'RESURRECT'}
       </Button>
-    </div>
-        <GraveYard deadStudents={deadStudents}/>
-    </div>
+      <GraveYard deadStudents={deadStudents}/>
+      </>
+      </div>
   );
 }
 

@@ -9,9 +9,11 @@ export default function SharkTank({ livingStudents }) {
       <div
       className="card-container"
       style={{
-        backgroundImage: `url(${sharktank})`
+        backgroundImage: `url(${sharktank})`,
+        color: 'aquamarine'
       }}
       >
+        {<h3>LIVING STUDENTS</h3>}
         {livingStudents.map((liveStudent) => (
           <LiveStudent
             key={liveStudent.id}
