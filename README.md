@@ -5,9 +5,9 @@
 The user enjoys needlessly putting the lives of their teams at risk of a shark attack!
 
 ## Features 
-- The user can click SHARK ATTACK button to move a random student to the Graveyard.
-- The user can click the RESURRECT buttton to move a student back to the Shark Tank.
-- Project helped the author learn how to use React props and incorporate SCSS.
+- The user clicks the SHARK ATTACK button to move a random student to the Graveyard.
+- The user clicks the RESURRECT buttton to move a student back to the Shark Tank.
+- Project helped the author learn how to use React props and incorporate SASS.
 
 ### Video Walkthrough
 [Loom video of Shark Attack](https://www.loom.com/share/9ac3a1463b0b44659aa10379e9003d3a)
